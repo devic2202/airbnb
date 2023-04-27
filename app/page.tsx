@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
@@ -6,12 +5,10 @@ import getListings from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrent";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default async function Home() {
   const listings = await getListings();
   const currentUser = await getCurrentUser();
-  if (listings?.length === 0) {
+  if (listings.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -24,7 +21,7 @@ export default async function Home() {
         <div
           className="
           pt-24
-          gird
+          grid
           grid-cols-1
           sm:grid-cols-2
           md:grid-cols-3
@@ -34,14 +31,14 @@ export default async function Home() {
           gap-8
          "
         >
-          {(listings ?? []).map((listing: any) => {
+          {(listings ?? []).map((listing) => {
             return (
-              <ListingCard 
+              <ListingCard
                 currentUser={currentUser}
                 key={listing?.id}
                 data={listing}
               />
-            )
+            );
           })}
         </div>
       </Container>

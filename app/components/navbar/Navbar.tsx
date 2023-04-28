@@ -34,8 +34,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
             <UserMenu currentUser={currentUser} />
           </div>
         </Container>
-        <Categories />
       </div>
+      <Categories />
     </div>
   );
 };

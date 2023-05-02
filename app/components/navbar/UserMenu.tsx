@@ -9,11 +9,13 @@ import MenuItem from "./MenuItem";
 
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
+import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false);
   const registerModal = useRegisterModal();
   const LoginModal = useLoginModal();
@@ -100,7 +102,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
-                <MenuItem onClick={() => {}} label="My trips" />
+                <MenuItem onClick={() => router.push('/trips')} label="My trips" />
                 <MenuItem onClick={() => {}} label="My favorites" />
                 <MenuItem onClick={() => {}} label="My reservations" />
                 <MenuItem onClick={() => {}} label="My properties" />

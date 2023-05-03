@@ -12,7 +12,7 @@ export interface IListingsParams {
 export default async function getListings(params: IListingsParams) {
   try {
     const {
-      userId,
+      userId = '',
       guestCount,
       roomCount,
       bathroomCount,
@@ -22,32 +22,32 @@ export default async function getListings(params: IListingsParams) {
       category,
     } = params;
     let query: any = {};
-    if (userId) {
+    if (!!userId) {
       query.userId = userId;
     }
-    if (category) {
+    if (!!category) {
       query.category = category;
     }
-    if (roomCount) {
+    if (!!roomCount) {
       query.roomCount = {
         gte: +roomCount,
       };
     }
-    if (bathroomCount) {
+    if (!!bathroomCount) {
       query.bathroomCount = {
         gte: +bathroomCount,
       };
     }
-    if (guestCount) {
+    if (!!guestCount) {
       query.guestCount = {
         gte: +guestCount,
       };
     }
-    if (locationValue) {
+    if (!!locationValue) {
       query.locationValue = locationValue;
     }
 
-    if (startDate && endDate) {
+    if (!!startDate && !!endDate) {
       query.NOT = {
         reservations: {
           some: {

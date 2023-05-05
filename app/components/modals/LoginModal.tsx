@@ -65,7 +65,7 @@ const LoginModal = () => {
         required
         onKeyDown={(e: any) => {
           if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
-            handleSubmit(onSubmit)
+            handleSubmit(onSubmit)()
           }
         }}
       />{" "}
@@ -79,7 +79,7 @@ const LoginModal = () => {
         required
         onKeyDown={(e: any) => {
           if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
-            handleSubmit(onSubmit)
+            handleSubmit(onSubmit)()
           }
         }}
       />

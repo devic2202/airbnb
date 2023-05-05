@@ -60,6 +60,11 @@ const RegisterModal = () => {
         register={register}
         errors={errors}
         required
+        onKeyDown={(e: any) => {
+          if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
+            handleSubmit(onSubmit)()
+          }
+        }}
       />{" "}
       <Input
         id="name"
@@ -68,6 +73,11 @@ const RegisterModal = () => {
         register={register}
         errors={errors}
         required
+        onKeyDown={(e: any) => {
+          if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
+            handleSubmit(onSubmit)()
+          }
+        }}
       />{" "}
       <Input
         id="password"
@@ -77,6 +87,11 @@ const RegisterModal = () => {
         register={register}
         errors={errors}
         required
+        onKeyDown={(e: any) => {
+          if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
+            handleSubmit(onSubmit)()
+          }
+        }}
       />
     </div>
   );

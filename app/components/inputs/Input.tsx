@@ -12,6 +12,7 @@ interface InputProps {
   required?: boolean;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
+  onKeyDown?: (e: any) => void;
 }
 const Input: React.FC<InputProps> = ({
   id,
@@ -21,6 +22,7 @@ const Input: React.FC<InputProps> = ({
   formatPrice,
   required,
   register,
+  onKeyDown,
   errors,
 }) => {
   return (
@@ -39,6 +41,7 @@ const Input: React.FC<InputProps> = ({
       <input
         id={id}
         disabled={disabled}
+        onKeyDown={onKeyDown}
         {...register(id, { required })}
         placeholder="  "
         type={type}

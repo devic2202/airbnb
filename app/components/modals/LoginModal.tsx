@@ -63,6 +63,11 @@ const LoginModal = () => {
         register={register}
         errors={errors}
         required
+        onKeyDown={(e: any) => {
+          if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
+            handleSubmit(onSubmit)
+          }
+        }}
       />{" "}
       <Input
         id="password"
@@ -72,6 +77,11 @@ const LoginModal = () => {
         register={register}
         errors={errors}
         required
+        onKeyDown={(e: any) => {
+          if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
+            handleSubmit(onSubmit)
+          }
+        }}
       />
     </div>
   );
@@ -121,11 +131,6 @@ const LoginModal = () => {
       actionLabel="Continue"
       onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
-      onKeyDown={(e: any) => {
-        if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
-          handleSubmit(onSubmit)
-        }
-      }}
       body={bodyContent}
       footer={footerContent}
     />

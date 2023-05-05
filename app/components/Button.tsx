@@ -7,6 +7,7 @@ interface ButtonProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   outline?: boolean;
+  onKeyDown?: (e: any) => void;
   small?: boolean;
   icon?: IconType;
 }
@@ -17,10 +18,12 @@ const Button: React.FC<ButtonProps> = ({
   outline,
   small,
   icon: Icon,
+  onKeyDown,
 }) => {
   return (
     <button
       onClick={onClick}
+      onKeyDown={onKeyDown}
       disabled={disabled}
       className={`
      relative

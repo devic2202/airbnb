@@ -121,6 +121,11 @@ const LoginModal = () => {
       actionLabel="Continue"
       onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
+      onKeyDown={(e: any) => {
+        if ((e.key === 'Enter' || e.key === "NumpadEnter")) {
+          handleSubmit(onSubmit)
+        }
+      }}
       body={bodyContent}
       footer={footerContent}
     />

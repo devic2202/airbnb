@@ -12,6 +12,7 @@ interface ModalProps {
   actionLabel: string;
   disabled?: boolean;
   secondaryAction?: () => void;
+  onKeyDown?: (e: any) => void;
   secondaryActionLabel?: string;
 }
 const Modal: React.FC<ModalProps> = ({
@@ -21,6 +22,7 @@ const Modal: React.FC<ModalProps> = ({
   title,
   body,
   footer,
+  onKeyDown,
   actionLabel,
   disabled,
   secondaryAction,
@@ -159,6 +161,7 @@ const Modal: React.FC<ModalProps> = ({
                     disabled={disabled}
                     label={actionLabel}
                     onClick={handleSubmit}
+                    onKeyDown={onKeyDown}
                   />
                 </div>
                 {footer}
